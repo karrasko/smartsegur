@@ -69,12 +69,27 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
+            position: relative;  /* Añadido para posicionamiento del sello */
+        }
+
+        .hero-seal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 1;
         }
 
         .hero-content {
             padding: 1rem;
             text-align: center;
             color: var(--white);
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -190,6 +205,11 @@
                 display: inline-block;
                 width: auto;
             }
+
+            .hero-seal {
+                width: 400px;
+                height: 400px;
+            }
         }
 
         @media (min-width: 1024px) {
@@ -257,6 +277,14 @@
     </nav>
 
     <section class="hero" id="inicio">
+        <svg class="hero-seal" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+            <!-- Mismo código SVG del logo que ya tienes -->
+            <path d="M100 20 L160 50 V110 C160 150 100 180 100 180 C100 180 40 150 40 110 V50 Z" 
+                  fill="#FFFFFF" 
+                  stroke="#FFFFFF" 
+                  stroke-width="4"/>
+            <!-- ... resto del código SVG ... -->
+        </svg>
         <div class="hero-content">
             <h1>Protege lo que más importa</h1>
             <p>Sistemas de seguridad inteligentes para tu hogar en Huelva. Tecnología avanzada y servicio profesional para tu tranquilidad.</p>
