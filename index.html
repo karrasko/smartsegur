@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <style>
+        :root {
+            --primary: #2196F3;
+            --primary-dark: #1976D2;
+            --white: #FFFFFF;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: var(--white);
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(33, 150, 243, 0.9), rgba(25, 118, 210, 0.9)),
+                        url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-dark);
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .features {
+            padding: 5rem 2rem;
+            background-color: var(--gray-50);
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .contact-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+        }
+
+        .footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <svg class="logo" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                <!-- Logo SVG code -->
+                <path d="M100 20 L160 50 V110 C160 150 100 180 100 180 C100 180 40 150 40 110 V50 Z" 
+                      fill="#2196F3" 
+                      stroke="#1976D2" 
+                      stroke-width="4"/>
+                <rect x="80" y="80" width="40" height="40" 
+                      fill="#1976D2" stroke="#FFFFFF" stroke-width="2"/>
+                <line x1="100" y1="50" x2="100" y2="80" stroke="#FFFFFF" stroke-width="2"/>
+                <line x1="100" y1="120" x2="100" y2="150" stroke="#FFFFFF" stroke-width="2"/>
+                <line x1="60" y1="100" x2="80" y2="100" stroke="#FFFFFF" stroke-width="2"/>
+                <line x1="120" y1="100" x2="140" y2="100" stroke="#FFFFFF" stroke-width="2"/>
+                <circle cx="100" cy="50" r="3" fill="#FFFFFF"/>
+                <circle cx="100" cy="150" r="3" fill="#FFFFFF"/>
+                <circle cx="60" cy="100" r="3" fill="#FFFFFF"/>
+                <circle cx="140" cy="100" r="3" fill="#FFFFFF"/>
+                <circle cx="70" cy="70" r="3" fill="#FFFFFF"/>
+                <line x1="70" y1="70" x2="80" y2="80" stroke="#FFFFFF" stroke-width="2"/>
+                <circle cx="130" cy="70" r="3" fill="#FFFFFF"/>
+                <line x1="130" y1="70" x2="120" y2="80" stroke="#FFFFFF" stroke-width="2"/>
+                <circle cx="70" cy="130" r="3" fill="#FFFFFF"/>
+                <line x1="70" y1="130" x2="80" y2="120" stroke="#FFFFFF" stroke-width="2"/>
+                <circle cx="130" cy="130" r="3" fill="#FFFFFF"/>
+                <line x1="130" y1="130" x2="120" y2="120" stroke="#FFFFFF" stroke-width="2"/>
+                <text x="100" y="220" 
+                      font-family="Arial, sans-serif" 
+                      font-weight="700"
+                      font-size="24" 
+                      text-anchor="middle" 
+                      fill="#1976D2">
+                  SMART
+                </text>
+                <text x="100" y="235" 
+                      font-family="Arial, sans-serif" 
+                      font-size="16" 
+                      text-anchor="middle" 
+                      fill="#2196F3"
+                      letter-spacing="2">
+                  SEGUR
+                </text>
+            </svg>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Protege lo que más importa</h1>
+            <p>Sistemas de seguridad inteligentes para tu hogar en Huelva. Tecnología avanzada y servicio profesional para tu tranquilidad.</p>
+            <a href="#contacto" class="cta-button">Solicitar Presupuesto Gratuito</a>
+        </div>
+    </section>
+
+    <section class="features" id="servicios">
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Alarmas Inteligentes</h3>
+                <p>Sistemas de última generación con conexión a central receptora 24/7 y control desde tu móvil.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Videovigilancia CCTV</h3>
+                <p>Cámaras de alta definición con visión nocturna y acceso remoto desde cualquier dispositivo.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Instalación Profesional</h3>
+                <p>Equipo técnico cualificado que garantiza una instalación rápida y eficiente.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Mantenimiento Garantizado</h3>
+                <p>Servicio técnico local con respuesta rápida y mantenimiento preventivo.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contacto">
+        <div class="contact-content">
+            <h2>¿Listo para proteger tu hogar?</h2>
+            <p>Solicita ahora tu estudio de seguridad gratuito y obtén un 10% de descuento en tu instalación</p>
+            <br>
+            <a href="tel:[Tu Número]" class="cta-button">Llamar Ahora</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2024 Smart Segur - Sistemas de Seguridad en Huelva</p>
+    </footer>
+</body>
+</html>
