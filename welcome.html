@@ -134,19 +134,35 @@
         }
 
         .contact-section {
-            padding: 5rem 2rem;
+            padding: 4rem 2rem;
             text-align: center;
-            background-color: var(--white);
+            background-color: var(--primary);
+            color: var(--white);
         }
 
         .contact-content {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .contact-section h2 {
-            color: var(--primary-dark);
+        .contact-content h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-content p {
             margin-bottom: 2rem;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-email {
+            font-size: 1.2rem;
+            margin-top: 1rem;
         }
 
         .footer {
@@ -295,8 +311,11 @@
         <div class="contact-content">
             <h2>¿Listo para proteger tu hogar?</h2>
             <p>Solicita ahora tu estudio de seguridad gratuito y obtén un 10% de descuento en tu instalación</p>
-            <br>
-            <a href="tel:+34610285077" class="cta-button">Llamar Ahora</a>
+            <div class="contact-buttons">
+                <a href="tel:+34610285077" class="cta-button">Llamar Ahora</a>
+                <a href="mailto:info@smartsegur.es" class="cta-button">Enviar Email</a>
+            </div>
+            <p class="contact-email">Email: info@smartsegur.es</p>
         </div>
     </section>
 
