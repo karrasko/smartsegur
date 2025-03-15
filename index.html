@@ -79,7 +79,7 @@
             transform: translate(-50%, -50%);
             width: 300px;
             height: 300px;
-            opacity: 0.1;
+            opacity: 0.2;  /* Aumentar la opacidad para hacerla más visible */
             pointer-events: none;
             z-index: 1;
         }
@@ -90,17 +90,23 @@
             color: var(--white);
             position: relative;
             z-index: 2;
+            margin: 0 auto;
+            max-width: 800px;
         }
 
         .hero h1 {
             font-size: 2rem;
             margin-bottom: 1rem;
+            text-align: center;
         }
 
         .hero p {
             font-size: 1rem;
             margin-bottom: 1.5rem;
             max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
         }
 
         .cta-button {
@@ -207,8 +213,9 @@
             }
 
             .hero-seal {
-                width: 400px;
-                height: 400px;
+                width: 500px;
+                height: 500px;
+                opacity: 0.25;
             }
         }
 
@@ -272,18 +279,51 @@
                 <a href="#inicio">Inicio</a>
                 <a href="#servicios">Servicios</a>
                 <a href="#contacto">Contacto</a>
+                <a href="folleto.html">Folleto</a>
             </div>
         </div>
     </nav>
 
     <section class="hero" id="inicio">
         <svg class="hero-seal" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-            <!-- Mismo código SVG del logo que ya tienes -->
             <path d="M100 20 L160 50 V110 C160 150 100 180 100 180 C100 180 40 150 40 110 V50 Z" 
                   fill="#FFFFFF" 
                   stroke="#FFFFFF" 
                   stroke-width="4"/>
-            <!-- ... resto del código SVG ... -->
+            <rect x="80" y="80" width="40" height="40" 
+                  fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2"/>
+            <line x1="100" y1="50" x2="100" y2="80" stroke="#FFFFFF" stroke-width="2"/>
+            <line x1="100" y1="120" x2="100" y2="150" stroke="#FFFFFF" stroke-width="2"/>
+            <line x1="60" y1="100" x2="80" y2="100" stroke="#FFFFFF" stroke-width="2"/>
+            <line x1="120" y1="100" x2="140" y2="100" stroke="#FFFFFF" stroke-width="2"/>
+            <circle cx="100" cy="50" r="3" fill="#FFFFFF"/>
+            <circle cx="100" cy="150" r="3" fill="#FFFFFF"/>
+            <circle cx="60" cy="100" r="3" fill="#FFFFFF"/>
+            <circle cx="140" cy="100" r="3" fill="#FFFFFF"/>
+            <circle cx="70" cy="70" r="3" fill="#FFFFFF"/>
+            <line x1="70" y1="70" x2="80" y2="80" stroke="#FFFFFF" stroke-width="2"/>
+            <circle cx="130" cy="70" r="3" fill="#FFFFFF"/>
+            <line x1="130" y1="70" x2="120" y2="80" stroke="#FFFFFF" stroke-width="2"/>
+            <circle cx="70" cy="130" r="3" fill="#FFFFFF"/>
+            <line x1="70" y1="130" x2="80" y2="120" stroke="#FFFFFF" stroke-width="2"/>
+            <circle cx="130" cy="130" r="3" fill="#FFFFFF"/>
+            <line x1="130" y1="130" x2="120" y2="120" stroke="#FFFFFF" stroke-width="2"/>
+            <text x="100" y="220" 
+                  font-family="Arial, sans-serif" 
+                  font-weight="700"
+                  font-size="24" 
+                  text-anchor="middle" 
+                  fill="#FFFFFF">
+              SMART
+            </text>
+            <text x="100" y="235" 
+                  font-family="Arial, sans-serif" 
+                  font-size="16" 
+                  text-anchor="middle" 
+                  fill="#FFFFFF"
+                  letter-spacing="2">
+              SEGUR
+            </text>
         </svg>
         <div class="hero-content">
             <h1>Protege lo que más importa</h1>
