@@ -7,11 +7,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 800px;
+            width: 210mm; /* Ancho A4 exacto */
+            height: 297mm; /* Alto A4 exacto */
             margin: 0 auto;
-            padding: 20px;
+            padding: 10mm;
             color: #333;
-            line-height: 1.6;
+            line-height: 1.4;
+            box-sizing: border-box;
         }
         .logo-container {
             text-align: center;
@@ -25,14 +27,15 @@
             text-align: center;
             background-color: #1976D2;
             color: white;
-            padding: 30px;
+            padding: 15px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .main-image {
             width: 100%;
-            height: 300px;
-            margin: 20px 0;
+            height: auto; /* Altura automática para mantener proporción */
+            max-height: 60mm; /* Altura máxima controlada */
+            margin: 10px 0;
             border-radius: 8px;
             overflow: hidden;
         }
@@ -45,15 +48,23 @@
             margin: 30px 0;
         }
         .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 15px 0;
         }
         .benefit-item {
             background-color: #f8fafc;
-            padding: 20px;
+            padding: 10px;
             border-radius: 8px;
             border: 1px solid #e2e8f0;
+            flex: 1;
+            font-size: 0.85em;
+            line-height: 1.3;
+        }
+        .benefit-item p {
+            margin: 5px 0;
         }
         .special-offer {
             background-color: #2196F3;
@@ -94,17 +105,17 @@
             text-decoration: none;
         }
         h1 {
-            font-size: 1.8em;
+            font-size: 1.5em;
             margin: 0;
         }
         h2 {
-            font-size: 1.2em;
+            font-size: 1.1em;
             margin: 5px 0;
         }
         h3 {
             text-align: center;
             color: #1976D2;
-            margin-bottom: 15px;
+            margin: 10px 0;
         }
         ul {
             list-style-type: none;
@@ -182,12 +193,12 @@
     <div class="services">
         <h3>Nuestros Servicios:</h3>
         <ul>
-            <li><strong>Alarmas Anti-Ocupación:</strong> Detectores de movimiento como el Sonoff SNZB-03 (Zigbee), Tapo T100 y Aqara Motion Sensor, sensores de puertas y ventanas Ajax, y sirenas potentes para una detección precisa contra ocupantes no deseados.</li>
-            <li><strong>Videovigilancia CCTV:</strong> Cámaras Tapo y Ajax para interiores y exteriores, con grabación y visualización remota.</li>
-            <li><strong>Alarmas Conectadas/Domóticas:</strong> Utilizamos sistemas basados en Home-Assistant con marcas como Sonoff, Tapo, Aqara y Ajax, la gama más vanguardista, que integra sensores avanzados para controlar tu alarma desde tu móvil, recibir notificaciones personalizadas y disfrutar de automatización del hogar con resultados comparables a los sistemas con suscripción.</li>
-            <li><strong>Placa de Seguridad Exterior:</strong> Incluimos una placa disuasoria para advertir y reforzar la protección de tu hogar.</li>
+            <li><strong>Alarmas Anti-Ocupación:</strong> Detectores como Sonoff SNZB-03, Tapo T100, Aqara Motion Sensor, sensores Ajax y sirenas potentes.</li>
+            <li><strong>Videovigilancia CCTV:</strong> Cámaras Tapo y Ajax para interiores y exteriores con grabación remota.</li>
+            <li><strong>Alarmas Conectadas/Domóticas:</strong> Sistemas Home-Assistant con Sonoff, Tapo, Aqara y Ajax para control móvil y automatización.</li>
+            <li><strong>Placa de Seguridad Exterior:</strong> Placa disuasoria incluida para reforzar la protección de tu hogar.</li>
             <li><strong>Mantenimiento y Revisión:</strong> Sistemas autónomos y fiables.</li>
-            <li><strong>Estudio de Seguridad Gratuito:</strong> Asesoramiento personalizado y presupuesto sin compromiso.</li>
+            <li><strong>Estudio de Seguridad Gratuito:</strong> Asesoramiento y presupuesto sin compromiso.</li>
         </ul>
     </div>
 
@@ -200,7 +211,7 @@
 
     <div class="promise">
         <h3>Nuestra Promesa</h3>
-        <p>Con más de 10 años de experiencia en la Costa Occidental de Huelva, Smart Segur es tu aliado confiable en seguridad residencial. Somos pioneros en Huelva con sistemas basados en Home-Assistant, integrando marcas líderes como Tapo, Sonoff, Aqara y Ajax, ofreciendo protección anti-ocupación comparable a las alarmas con suscripción, sin costos mensuales. Ofrecemos soporte personalizado bajo demanda para casos específicos, si lo necesitas.</p>
+        <p>Con más de 10 años de experiencia en Huelva, Smart Segur ofrece sistemas autónomos con Home-Assistant y marcas líderes. Protección anti-ocupación sin costos mensuales. Soporte bajo demanda para casos específicos, si lo necesitas.</p>
     </div>
 
     <div class="contact">
