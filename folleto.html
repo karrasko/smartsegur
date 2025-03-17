@@ -3,130 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Folleto Smart Segur - Seguridad Residencial en Huelva (PDF Muestra)</title>
+    <title>Folleto Smart Segur - Seguridad Residencial en Huelva</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 595px; /* Ancho A4 (210 mm a 300 dpi) */
+            max-width: 800px;
             margin: 0 auto;
-            padding: 10px;
+            padding: 20px;
             color: #333;
-            line-height: 1.3;
-            background-color: #fff;
-            height: 841px; /* Altura máxima A4 (297 mm a 300 dpi) */
-            box-sizing: border-box;
+            line-height: 1.6;
         }
         .logo-container {
             text-align: center;
-            margin-bottom: 5px;
+            margin-bottom: 20px;
         }
         .logo-svg {
-            width: 80px;
-            height: 100px;
+            width: 150px;
+            height: 180px;
         }
         .header {
             text-align: center;
-            background-color: #42A5F5; /* Azul menos intenso */
+            background-color: #1976D2;
             color: white;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 5px;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
         .main-image {
             width: 100%;
-            height: 180px; /* Aumentado para evitar cortes */
-            margin: 5px 0;
-            border-radius: 5px;
+            height: 300px;
+            margin: 20px 0;
+            border-radius: 8px;
             overflow: hidden;
-            background-color: #e0e0e0; /* Placeholder para la imagen */
         }
         .main-image img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Cambiado a contain para mostrar toda la imagen */
+            object-fit: cover;
         }
         .benefits, .services, .promise {
-            margin: 10px 0;
+            margin: 30px 0;
         }
         .benefits-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
         .benefit-item {
-            background-color: #f8fafc; /* Restaurado el fondo original */
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #e2e8f0; /* Restaurado el borde original */
-            font-size: 0.8em;
+            background-color: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
         }
         .special-offer {
-            background-color: #64B5F6; /* Azul menos intenso */
+            background-color: #2196F3;
             color: white;
-            padding: 10px;
-            border-radius: 5px;
+            padding: 20px;
+            border-radius: 8px;
             text-align: center;
-            margin: 10px 0;
+            margin: 30px 0;
         }
         .contact {
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             background-color: #f7fafc;
-            border-radius: 5px;
-            border: 2px solid #42A5F5; /* Ajustado para coherencia */
+            border-radius: 8px;
+            border: 2px solid #1976D2;
         }
         .promise {
             background-color: #e2e8f0;
-            padding: 10px;
-            border-radius: 5px;
+            padding: 20px;
+            border-radius: 8px;
             text-align: center;
-            font-size: 0.8em;
         }
         .footer {
             text-align: center;
-            font-size: 0.6em;
+            font-size: 0.8em;
             color: #718096;
-            margin-top: 10px;
+            margin-top: 30px;
         }
         .checkmark {
-            color: #42A5F5; /* Ajustado para coherencia */
-            margin-right: 3px;
-            font-size: 0.9em;
+            color: #2196F3;
+            margin-right: 10px;
+            font-size: 1.2em;
         }
         .website {
-            color: #42A5F5; /* Ajustado para coherencia */
+            color: #1976D2;
             font-weight: bold;
-            font-size: 0.9em;
+            font-size: 1.2em;
             text-decoration: none;
         }
         h1 {
-            font-size: 1.1em;
+            font-size: 1.8em;
             margin: 0;
         }
         h2 {
-            font-size: 0.9em;
-            margin: 3px 0;
+            font-size: 1.2em;
+            margin: 5px 0;
         }
         h3 {
             text-align: center;
-            color: #42A5F5; /* Ajustado para coherencia */
-            margin-bottom: 5px;
-            font-size: 1em;
+            color: #1976D2;
+            margin-bottom: 15px;
         }
         ul {
             list-style-type: none;
             padding-left: 0;
         }
         ul li {
-            margin-bottom: 3px;
-            font-size: 0.8em;
+            margin-bottom: 10px;
         }
         strong {
-            color: #42A5F5; /* Ajustado para coherencia */
+            color: #1976D2;
         }
     </style>
-    <!-- Incluir la librería html2pdf para generar el PDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
     <div class="logo-container">
@@ -172,19 +162,19 @@
         <div class="benefits-grid">
             <div class="benefit-item">
                 <p><span class="checkmark">✓</span> Máxima Seguridad</p>
-                <p>Sistemas de alarma de última generación para proteger tu hogar.</p>
+                <p>Sistemas de alarma de última generación para proteger tu hogar contra robos e intrusiones.</p>
             </div>
             <div class="benefit-item">
                 <p><span class="checkmark">✓</span> Tranquilidad Familiar</p>
-                <p>Protección 24/7 para tu familia en Huelva.</p>
+                <p>Duerme con la seguridad de que tu familia y tu hogar están protegidos las 24 horas.</p>
             </div>
             <div class="benefit-item">
                 <p><span class="checkmark">✓</span> Instalación Profesional</p>
-                <p>Instalación rápida y eficiente por técnicos expertos.</p>
+                <p>Técnicos cualificados y con experiencia para una instalación rápida, limpia y eficiente.</p>
             </div>
             <div class="benefit-item">
                 <p><span class="checkmark">✓</span> Sistemas Personalizados</p>
-                <p>Soluciones adaptadas a tu hogar y presupuesto.</p>
+                <p>Alarmas adaptadas a las necesidades específicas de tu vivienda y presupuesto.</p>
             </div>
         </div>
     </div>
@@ -192,12 +182,12 @@
     <div class="services">
         <h3>Nuestros Servicios:</h3>
         <ul>
-            <li><strong>Alarmas Anti-Ocupación:</strong> Detectores como Sonoff SNZB-03, Tapo T100, Aqara Motion Sensor, sensores Ajax y sirenas potentes.</li>
-            <li><strong>Videovigilancia CCTV:</strong> Cámaras Tapo y Ajax para interiores y exteriores con grabación remota.</li>
-            <li><strong>Alarmas Conectadas/Domóticas:</strong> Sistemas Home-Assistant con Sonoff, Tapo, Aqara y Ajax para control móvil y automatización.</li>
-            <li><strong>Placa de Seguridad Exterior:</strong> Placa disuasoria incluida para reforzar la protección de tu hogar.</li>
+            <li><strong>Alarmas Anti-Ocupación:</strong> Detectores de movimiento como el Sonoff SNZB-03 (Zigbee), Tapo T100 y Aqara Motion Sensor, sensores de puertas y ventanas Ajax, y sirenas potentes para una detección precisa contra ocupantes no deseados.</li>
+            <li><strong>Videovigilancia CCTV:</strong> Cámaras Tapo y Ajax para interiores y exteriores, con grabación y visualización remota.</li>
+            <li><strong>Alarmas Conectadas/Domóticas:</strong> Utilizamos sistemas basados en Home-Assistant con marcas como Sonoff, Tapo, Aqara y Ajax, la gama más vanguardista, que integra sensores avanzados para controlar tu alarma desde tu móvil, recibir notificaciones personalizadas y disfrutar de automatización del hogar con resultados comparables a los sistemas con suscripción.</li>
+            <li><strong>Placa de Seguridad Exterior:</strong> Incluimos una placa disuasoria para advertir y reforzar la protección de tu hogar.</li>
             <li><strong>Mantenimiento y Revisión:</strong> Sistemas autónomos y fiables.</li>
-            <li><strong>Estudio de Seguridad Gratuito:</strong> Asesoramiento y presupuesto sin compromiso.</li>
+            <li><strong>Estudio de Seguridad Gratuito:</strong> Asesoramiento personalizado y presupuesto sin compromiso.</li>
         </ul>
     </div>
 
@@ -205,12 +195,12 @@
         <h2>¡OFERTA DE INICIO EXCLUSIVA PARA HUELVA!</h2>
         <h1>10% DE DESCUENTO</h1>
         <p>EN LA INSTALACIÓN DE TU ALARMA RESIDENCIAL</p>
-        <p><small>Válido para los primeros 50 clientes. Menciona este folleto.</small></p>
+        <p><small>Válido para los primeros 50 clientes. Menciona este folleto al contactarnos.</small></p>
     </div>
 
     <div class="promise">
         <h3>Nuestra Promesa</h3>
-        <p>Con más de 10 años de experiencia en Huelva, Smart Segur ofrece sistemas autónomos con Home-Assistant y marcas líderes. Protección anti-ocupación sin costos mensuales. Soporte bajo demanda para casos específicos, si lo necesitas.</p>
+        <p>Con más de 10 años de experiencia en la Costa Occidental de Huelva, Smart Segur es tu aliado confiable en seguridad residencial. Somos pioneros en Huelva con sistemas basados en Home-Assistant, integrando marcas líderes como Tapo, Sonoff, Aqara y Ajax, ofreciendo protección anti-ocupación comparable a las alarmas con suscripción, sin costos mensuales. Ofrecemos soporte personalizado bajo demanda para casos específicos, si lo necesitas.</p>
     </div>
 
     <div class="contact">
@@ -225,22 +215,5 @@
         <p>Válido hasta 30 de abril de 2025. Consulta condiciones.</p>
         <p>Smart Segur - Sistemas de Seguridad Inteligentes - Huelva</p>
     </div>
-
-    <!-- Botón para generar el PDF -->
-    <button onclick="generatePDF()">Generar PDF de Muestra</button>
-
-    <script>
-        function generatePDF() {
-            const element = document.body;
-            const opt = {
-                margin: 10, // Márgenes de 10 mm
-                filename: 'Smart_Segur_Folleto_Muestra.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-            html2pdf().set(opt).from(element).save();
-        }
-    </script>
 </body>
 </html>
