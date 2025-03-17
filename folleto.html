@@ -139,9 +139,15 @@
         }
         .footer {
             text-align: center;
-            font-size: 0.8em;
+            font-size: 0.7em;
             color: #718096;
-            margin-top: 30px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+        .footer p {
+            margin: 0;
+            padding: 0;
         }
         .checkmark {
             color: #2196F3;
@@ -231,6 +237,22 @@
         .header h2 {
             font-size: 1em; /* Reducido */
         }
+        /* Estilo para contacto en línea */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 5px 0;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info p {
+            margin: 0;
+            padding: 0;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
@@ -315,22 +337,18 @@
         <p><small>Válido para los primeros 50 clientes. Menciona este folleto al contactarnos.</small></p>
     </div>
 
-    <div class="promise">
-        <h3>Nuestra Promesa</h3>
-        <p>Con más de 9 años de experiencia en Huelva, Protección anti-ocupación sin costos mensuales. Soporte bajo demanda para casos específicos, si lo necesitas.</p>
-    </div>
-
     <div class="contact">
         <h3>¡No esperes más para proteger lo que más quieres!</h3>
         <h2>LLAMA AHORA PARA TU PRESUPUESTO GRATUITO</h2>
-        <p>📞 +34 610 285 077</p>
-        <p>🌐 <a href="https://smartsegur.es" class="website">www.smartsegur.es</a></p>
-        <p>📧 info@smartsegur.es</p>
+        <div class="contact-info">
+            <p>📞 +34 610 285 077</p>
+            <p>🌐 <a href="https://smartsegur.es" class="website">www.smartsegur.es</a></p>
+            <p>📧 info@smartsegur.es</p>
+        </div>
     </div>
 
     <div class="footer">
-        <p>Válido hasta 30 de abril de 2025. Consulta condiciones.</p>
-        <p>Smart Segur - Sistemas de Seguridad Inteligentes - Huelva</p>
+        <p>Smart Segur - Sistemas de Seguridad Inteligentes, Huelva - Soporte bajo demanda disponible si lo necesitas</p>
     </div>
 </body>
 </html>
