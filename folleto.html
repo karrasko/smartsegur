@@ -69,17 +69,55 @@
         .special-offer {
             background-color: #2196F3;
             color: white;
-            padding: 20px;
+            padding: 10px;
             border-radius: 8px;
             text-align: center;
-            margin: 30px 0;
+            margin: 15px 0;
+        }
+        .special-offer h2 {
+            font-size: 0.95em;
+            margin: 3px 0;
+            font-weight: 600;
+        }
+        .special-offer h1 {
+            font-size: 1.3em;
+            margin: 5px 0;
+        }
+        .special-offer p {
+            margin: 3px 0;
+            font-size: 0.8em;
+            line-height: 1.2;
+        }
+        .special-offer small {
+            font-size: 0.75em;
         }
         .contact {
             text-align: center;
-            padding: 20px;
+            padding: 10px;
             background-color: #f7fafc;
             border-radius: 8px;
-            border: 2px solid #1976D2;
+            border: 1px solid #1976D2;
+            margin: 15px 0;
+        }
+        .contact h3 {
+            font-size: 0.95em;
+            color: #1976D2;
+            margin: 3px 0;
+            font-weight: 600;
+            padding: 0;
+        }
+        .contact h2 {
+            font-size: 1em;
+            margin: 5px 0;
+            line-height: 1.2;
+        }
+        .contact p {
+            margin: 5px 0;
+            font-size: 0.85em;
+            line-height: 1.2;
+        }
+        .contact .website {
+            font-size: 1em;
         }
         .promise {
             background-color: #e2e8f0;
@@ -162,40 +200,73 @@
             color: #1976D2;
             font-size: 0.9em; /* Ligeramente más pequeño */
         }
+        /* Nuevo estilo para el encabezado combinado con logo */
+        .header-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+        
+        .logo-container {
+            margin-bottom: 0; /* Eliminar margen inferior */
+            flex-shrink: 0; /* Evitar que el logo se encoja */
+        }
+        
+        .logo-svg {
+            width: 120px; /* Reducido de 150px */
+            height: 140px; /* Reducido de 180px */
+        }
+        
+        .header {
+            flex-grow: 1; /* Que ocupe el resto del espacio disponible */
+            margin-bottom: 0; /* Eliminar margen inferior */
+        }
+        
+        /* Ajustar tamaños de texto para el encabezado */
+        .header h1 {
+            font-size: 1.3em; /* Ligeramente reducido */
+        }
+        
+        .header h2 {
+            font-size: 1em; /* Reducido */
+        }
     </style>
 </head>
 <body>
-    <div class="logo-container">
-        <svg class="logo-svg" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 20 L160 50 V110 C160 150 100 180 100 180 C100 180 40 150 40 110 V50 Z" 
-                  fill="#2196F3" stroke="#1976D2" stroke-width="4"/>
-            <rect x="80" y="80" width="40" height="40" fill="#1976D2" stroke="#FFFFFF" stroke-width="2"/>
-            <line x1="100" y1="50" x2="100" y2="80" stroke="#FFFFFF" stroke-width="2"/>
-            <line x1="100" y1="120" x2="100" y2="150" stroke="#FFFFFF" stroke-width="2"/>
-            <line x1="60" y1="100" x2="80" y2="100" stroke="#FFFFFF" stroke-width="2"/>
-            <line x1="120" y1="100" x2="140" y2="100" stroke="#FFFFFF" stroke-width="2"/>
-            <circle cx="100" cy="50" r="3" fill="#FFFFFF"/>
-            <circle cx="100" cy="150" r="3" fill="#FFFFFF"/>
-            <circle cx="60" cy="100" r="3" fill="#FFFFFF"/>
-            <circle cx="140" cy="100" r="3" fill="#FFFFFF"/>
-            <circle cx="70" cy="70" r="3" fill="#FFFFFF"/>
-            <line x1="70" y1="70" x2="80" y2="80" stroke="#FFFFFF" stroke-width="2"/>
-            <circle cx="130" cy="70" r="3" fill="#FFFFFF"/>
-            <line x1="130" y1="70" x2="120" y2="80" stroke="#FFFFFF" stroke-width="2"/>
-            <circle cx="70" cy="130" r="3" fill="#FFFFFF"/>
-            <line x1="70" y1="130" x2="80" y2="120" stroke="#FFFFFF" stroke-width="2"/>
-            <circle cx="130" cy="130" r="3" fill="#FFFFFF"/>
-            <line x1="130" y1="130" x2="120" y2="120" stroke="#FFFFFF" stroke-width="2"/>
-            <text x="100" y="220" font-family="Arial, sans-serif" font-weight="700" font-size="24" 
-                  text-anchor="middle" fill="#1976D2">SMART</text>
-            <text x="100" y="235" font-family="Arial, sans-serif" font-size="16" 
-                  text-anchor="middle" fill="#2196F3" letter-spacing="2">SEGUR</text>
-        </svg>
-    </div>
-
-    <div class="header">
-        <h1>Alarmas Anti-Ocupación: Paga Una Vez, Seguridad Tipo Suscripción, Sin Costos Mensuales</h1>
-        <h2>Tranquilidad y Seguridad para Tu Familia en Huelva</h2>
+    <div class="header-container">
+        <div class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                <path d="M100 20 L160 50 V110 C160 150 100 180 100 180 C100 180 40 150 40 110 V50 Z" 
+                      fill="#2196F3" stroke="#1976D2" stroke-width="4"/>
+                <rect x="80" y="80" width="40" height="40" fill="#1976D2" stroke="#FFFFFF" stroke-width="2"/>
+                <line x1="100" y1="50" x2="100" y2="80" stroke="#FFFFFF" stroke-width="2"/>
+                <line x1="100" y1="120" x2="100" y2="150" stroke="#FFFFFF" stroke-width="2"/>
+                <line x1="60" y1="100" x2="80" y2="100" stroke="#FFFFFF" stroke-width="2"/>
+                <line x1="120" y1="100" x2="140" y2="100" stroke="#FFFFFF" stroke-width="2"/>
+                <circle cx="100" cy="50" r="3" fill="#FFFFFF"/>
+                <circle cx="100" cy="150" r="3" fill="#FFFFFF"/>
+                <circle cx="60" cy="100" r="3" fill="#FFFFFF"/>
+                <circle cx="140" cy="100" r="3" fill="#FFFFFF"/>
+                <circle cx="70" cy="70" r="3" fill="#FFFFFF"/>
+                <line x1="70" y1="70" x2="80" y2="80" stroke="#FFFFFF" stroke-width="2"/>
+                <circle cx="130" cy="70" r="3" fill="#FFFFFF"/>
+                <line x1="130" y1="70" x2="120" y2="80" stroke="#FFFFFF" stroke-width="2"/>
+                <circle cx="70" cy="130" r="3" fill="#FFFFFF"/>
+                <line x1="70" y1="130" x2="80" y2="120" stroke="#FFFFFF" stroke-width="2"/>
+                <circle cx="130" cy="130" r="3" fill="#FFFFFF"/>
+                <line x1="130" y1="130" x2="120" y2="120" stroke="#FFFFFF" stroke-width="2"/>
+                <text x="100" y="220" font-family="Arial, sans-serif" font-weight="700" font-size="24" 
+                      text-anchor="middle" fill="#1976D2">SMART</text>
+                <text x="100" y="235" font-family="Arial, sans-serif" font-size="16" 
+                      text-anchor="middle" fill="#2196F3" letter-spacing="2">SEGUR</text>
+            </svg>
+        </div>
+        
+        <div class="header">
+            <h1>Alarmas Anti-Ocupación: Paga Una Vez, Seguridad Tipo Suscripción, Sin Costos Mensuales</h1>
+            <h2>Tranquilidad y Seguridad para Tu Familia en Huelva</h2>
+        </div>
     </div>
 
     <div class="main-image">
