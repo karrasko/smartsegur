@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Bienvenido a Smart Segur - Sistemas de Seguridad en Huelva</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Segur - Sistemas de Seguridad en Huelva</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 240'><path d='M100 20 L160 50 V110 C160 150 100 180 100 180 C100 180 40 150 40 110 V50 Z' fill='%232196F3' stroke='%231976D2' stroke-width='4'/><rect x='80' y='80' width='40' height='40' fill='%231976D2' stroke='%23FFFFFF' stroke-width='2'/></svg>">
     <style>
         :root {
@@ -19,15 +20,17 @@
             box-sizing: border-box;
         }
 
+        /* Base styles optimized for mobile */
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #333;
+            font-size: 16px;
         }
 
         .navbar {
             background-color: var(--white);
-            padding: 1rem;
+            padding: 0.5rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
@@ -36,20 +39,21 @@
         }
 
         .navbar-content {
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 0 1rem;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
         }
 
         .logo {
-            height: 60px;
+            height: 50px;
+            margin-bottom: 0.5rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
+            margin-top: 0.5rem;
         }
 
         .nav-links a {
@@ -60,35 +64,47 @@
 
         .hero {
             background: linear-gradient(rgba(33, 150, 243, 0.9), rgba(25, 118, 210, 0.9)),
-                        url('/api/placeholder/1920/1080');
+                        url('/api/placeholder/800/600');
             background-size: cover;
             background-position: center;
+            padding-top: 120px;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 80px;
-            position: relative;
+            position: relative;  /* Añadido para posicionamiento del sello */
+        }
+
+        .hero-seal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            opacity: 0.2;  /* Aumentar la opacidad para hacerla más visible */
+            pointer-events: none;
+            z-index: 1;
         }
 
         .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            color: var(--white);
+            padding: 1rem;
             text-align: center;
+            color: var(--white);
             position: relative;
             z-index: 2;
+            margin: 0 auto;
+            max-width: 800px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            margin-bottom: 1rem;
             text-align: center;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -96,10 +112,14 @@
         }
 
         .cta-button {
-            display: inline-block;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            text-align: center;
             background-color: var(--white);
             color: var(--primary-dark);
-            padding: 1rem 2rem;
+            padding: 1rem;
             border-radius: 0.5rem;
             text-decoration: none;
             font-weight: bold;
@@ -111,21 +131,19 @@
         }
 
         .features {
-            padding: 5rem 2rem;
+            padding: 2rem 1rem;
             background-color: var(--gray-50);
         }
 
         .features-grid {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1rem;
         }
 
         .feature-card {
             background-color: var(--white);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 0.5rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
@@ -136,34 +154,34 @@
         }
 
         .contact-section {
-            padding: 4rem 2rem;
+            padding: 2rem 1rem;
             text-align: center;
             background-color: var(--primary);
             color: var(--white);
         }
 
         .contact-content {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
         .contact-content h2 {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .contact-content p {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .contact-buttons {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .contact-email {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-top: 1rem;
         }
 
@@ -174,16 +192,65 @@
             text-align: center;
         }
 
-        .hero-seal {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 500px;
-            height: 500px;
-            opacity: 0.25;
-            pointer-events: none;
-            z-index: 1;
+        /* Media queries for larger screens */
+        @media (min-width: 768px) {
+            .navbar-content {
+                flex-direction: row;
+                justify-content: space-between;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 2rem;
+            }
+
+            .logo {
+                margin-bottom: 0;
+            }
+
+            .nav-links {
+                margin-top: 0;
+                gap: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .cta-button {
+                display: inline-block;
+                width: auto;
+            }
+
+            .hero-seal {
+                width: 500px;
+                height: 500px;
+                opacity: 0.25;
+            }
+
+            .contact-buttons {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .hero-content, .features-grid, .contact-content {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
