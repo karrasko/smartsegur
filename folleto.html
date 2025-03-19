@@ -72,7 +72,8 @@
             padding: 10px;
             border-radius: 8px;
             text-align: center;
-            margin: 15px 0;
+            margin: 20px 0 15px 0;
+            display: block; /* Volvemos a mostrarla */
         }
         .special-offer h2 {
             font-size: 0.95em;
@@ -139,11 +140,10 @@
         }
         .footer {
             text-align: center;
-            font-size: 0.7em;
+            font-size: 0.75em;
             color: #718096;
-            margin-top: 10px;
-            margin-bottom: 5px;
-            line-height: 1.1;
+            margin-top: 15px;
+            line-height: 1.3;
         }
         .footer p {
             margin: 0;
@@ -225,17 +225,25 @@
         }
         
         .header {
-            flex-grow: 1; /* Que ocupe el resto del espacio disponible */
-            margin-bottom: 0; /* Eliminar margen inferior */
+            flex-grow: 1;
+            margin-bottom: 0;
+            padding: 12px 15px; /* Padding ajustado */
         }
         
-        /* Ajustar tamaños de texto para el encabezado */
         .header h1 {
-            font-size: 1.3em; /* Ligeramente reducido */
+            font-size: 1.15em;
+            margin: 0;
+            line-height: 1.4;
+            text-align: left; /* Alineación a la izquierda para mejor distribución */
         }
         
-        .header h2 {
-            font-size: 1em; /* Reducido */
+        .header .tagline-part {
+            display: block; /* Cada parte en una nueva línea */
+            margin-bottom: 5px; /* Espacio entre líneas */
+        }
+        
+        .header .tagline-highlight {
+            font-weight: 700; /* Resaltar partes importantes */
         }
         /* Estilo para contacto en línea */
         .contact-info {
@@ -252,6 +260,189 @@
             padding: 0;
             font-size: 0.85em;
             white-space: nowrap;
+        }
+        /* Nuevo estilo para servicios y pack básico en paralelo */
+        .services-container {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0 25px 0; /* Más espacio abajo */
+        }
+        
+        .services-column {
+            flex: 1;
+            background-color: #f8fafc;
+            padding: 15px; /* Igualado al padding del pack básico */
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            text-align: center; /* Centrado como el pack básico */
+        }
+        
+        .services h3 {
+            margin: 5px 0 10px 0; /* Igualado al margen del título del pack */
+            font-size: 1.1em;
+            color: #1976D2;
+            text-align: center;
+            font-weight: normal; /* Para equilibrar visualmente */
+            padding: 0;
+        }
+        
+        .services ul {
+            list-style-type: none; /* Sin viñetas */
+            text-align: center;
+            margin: 10px 0;
+            padding: 0;
+        }
+        
+        .services ul li {
+            font-size: 0.85em;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+        
+        .services strong {
+            color: #1976D2;
+            font-weight: 600; /* Menos pesado que bold pero visible */
+            display: inline-block;
+            margin-right: 3px;
+        }
+        
+        .basic-pack {
+            flex: 1;
+            background-color: #e6f7ff; /* Azul claro/celeste */
+            color: #333; /* Texto oscuro */
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #a3d8f4; /* Borde azul claro */
+        }
+        
+        .basic-pack h4 {
+            margin: 5px 0 10px 0;
+            font-size: 1.1em;
+            color: #1976D2; /* Azul para el título */
+            text-align: center;
+        }
+        
+        .basic-pack ul {
+            list-style-type: none;
+            text-align: center;
+            margin: 10px 0;
+            padding: 0;
+        }
+        
+        .basic-pack li {
+            font-size: 0.85em;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        
+        .price-option {
+            font-size: 0.9em;
+            margin: 8px 0 0 0;
+            color: #333;
+        }
+        
+        .price-highlight {
+            font-weight: bold;
+            color: #1976D2;
+        }
+        
+        .saving-note {
+            font-size: 0.8em;
+            margin-top: 8px;
+            color: #1976D2;
+        }
+        
+        .services ul li {
+            margin-bottom: 3px;
+        }
+        /* Estilos para la nueva estructura armonizada */
+        .contact-footer {
+            background-color: #f7fafc;
+            border: 1px solid #1976D2;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .contact-footer h3 {
+            font-size: 1em;
+            color: #1976D2;
+            margin: 0 0 8px 0;
+            padding: 0;
+        }
+        
+        .call-to-action {
+            font-size: 1.05em; /* Aumentado de 0.95em */
+            font-weight: 600; /* Aumentado de normal a semi-bold */
+            margin: 5px 0 10px 0;
+            color: #1976D2; /* Cambiado a azul corporativo para mayor destaque */
+            padding: 3px 0; /* Añadido padding vertical para que respire */
+            letter-spacing: 0.3px; /* Ligero espaciado entre letras para mejor legibilidad */
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+        
+        .contact-info p {
+            margin: 0;
+            padding: 0;
+            font-size: 0.9em;
+        }
+        
+        .support-note {
+            font-size: 0.85em;
+            color: #1976D2;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        /* Eliminamos estilos redundantes */
+        .special-offer, .contact {
+            display: none; /* Ocultamos estos bloques */
+        }
+        .company-header {
+            display: none; /* Ocultamos la línea superior no deseada */
+        }
+        /* Estilo específico para la caja de oferta especial destacada */
+        .special-offer-box {
+            background-color: #2196F3;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .special-offer-box h2 {
+            font-size: 1em;
+            margin: 5px 0;
+            font-weight: bold;
+        }
+        
+        .special-offer-box .discount {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+        
+        .special-offer-box p {
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+        
+        .special-offer-box .note {
+            font-size: 0.75em;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -286,8 +477,11 @@
         </div>
         
         <div class="header">
-            <h1>Alarmas Anti-Ocupación: Paga Una Vez, Protección completa, Sin Costos Mensuales</h1>
-            <h2>Tranquilidad y Seguridad para Tu Familia en Huelva</h2>
+            <h1>
+                <span class="tagline-part"><span class="tagline-highlight">Alarmas Anti-Ocupación:</span> Paga Una Vez, Sin Costos Mensuales</span>
+                <span class="tagline-part">Protección completa </span>
+                <span class="tagline-part">Nuestras redes de securización llegan donde otros no llegan</span>
+            </h1>
         </div>
     </div>
 
@@ -295,60 +489,77 @@
         <img src="mobile_sensor_control.jpg" alt="Control de sensores desde tu móvil con Smart Segur" />
     </div>
 
-    <h3>Alarmas Residenciales Profesionales y Personalizadas</h3>
+    <h3>Alarmas Residenciales con Tecnología de Punta</h3>
 
     <div class="benefits">
         <div class="benefits-grid">
             <div class="benefit-item">
                 <p><span class="checkmark">✓</span> Máxima Seguridad</p>
-                <p>Sistemas de alarma de última generación para proteger tu hogar contra robos e intrusiones.</p>
+                <p>Con IA para detección inteligente.</p>
             </div>
             <div class="benefit-item">
-                <p><span class="checkmark">✓</span> Tranquilidad Familiar</p>
-                <p>Duerme con la seguridad de que tu familia y tu hogar están protegidos las 24 horas.</p>
+                <p><span class="checkmark">✓</span> Cobertura WiFi</p>
+                <p>Redes malladas, WiFi, Zigbee, Z-Wave.</p>
             </div>
             <div class="benefit-item">
                 <p><span class="checkmark">✓</span> Instalación Profesional</p>
-                <p>Técnicos cualificados y con experiencia para una instalación rápida, limpia y eficiente.</p>
+                <p>Rápida y eficiente.</p>
             </div>
             <div class="benefit-item">
                 <p><span class="checkmark">✓</span> Sistemas Personalizados</p>
-                <p>Alarmas adaptadas a las necesidades específicas de tu vivienda y presupuesto.</p>
+                <p>Adaptados a tu hogar.</p>
             </div>
         </div>
     </div>
 
-    <div class="services">
-        <h3>Nuestros Servicios:</h3>
-        <ul>
-            <li><strong>Alarmas Anti-Ocupación:</strong> Detectores como Sonoff SNZB-03, Tapo T100, Aqara Motion Sensor, sensores Ajax y sirenas potentes.</li>
-            <li><strong>Videovigilancia CCTV:</strong> Cámaras Tapo y Ajax para interiores y exteriores con grabación remota.</li>
-            <li><strong>Alarmas Conectadas/Domóticas:</strong> Sistemas Home-Assistant con Sonoff, Tapo, Aqara y Ajax para control móvil y automatización.</li>
-            <li><strong>Placa de Seguridad Exterior:</strong> Placa disuasoria incluida para reforzar la protección de tu hogar.</li>
-            <li><strong>Mantenimiento y Revisión:</strong> Sistemas autónomos y fiables.</li>
-            <li><strong>Estudio de Seguridad Gratuito:</strong> Asesoramiento y presupuesto sin compromiso.</li>
-        </ul>
+    <div class="services-container">
+        <div class="services-column services">
+            <h3>Nuestros Servicios:</h3>
+            <ul>
+                <li><strong>Alarmas con IA:</strong> Detección avanzada.</li>
+                <li><strong>Redes Malladas:</strong> WiFi, Zigbee, Z-Wave.</li>
+                <li><strong>Videovigilancia:</strong> Cámaras inteligentes.</li>
+                <li><strong>Placa de Seguridad:</strong> Disuasoria incluida.</li>
+                <li><strong>Mantenimiento:</strong> Servicio garantizado.</li>
+                <li><strong>Estudio Gratuito:</strong> Asesoramiento sin costo.</li>
+            </ul>
+        </div>
+        
+        <div class="basic-pack">
+            <h4>Pack Seguridad Básica</h4>
+            <ul>
+                <li>2 sensores anti-ocupación con IA</li>
+                <li>1 unidad central con sirena y botón inteligente</li>
+                <li>Placa de seguridad exterior</li>
+                <li>Instalación con red mallada (WiFi/Zigbee/Z-Wave)</li>
+            </ul>
+            <div class="price-option">Precio: <span class="price-highlight">449€</span> (con 10% de descuento)</div>
+            <div class="price-option"><span class="price-highlight">¡O 150€ inicial + 2 plazos de 150€ sin intereses!</span></div>
+            <div class="saving-note">Sin cuotas mensuales. ¡Ahorra miles de euros frente a sistemas de suscripción!</div>
+        </div>
     </div>
 
-    <div class="special-offer">
+    <div class="special-offer-box">
         <h2>¡OFERTA DE INICIO EXCLUSIVA PARA HUELVA!</h2>
-        <h1>10% DE DESCUENTO</h1>
-        <p>EN LA INSTALACIÓN DE TU ALARMA RESIDENCIAL</p>
-        <p><small>Válido para los primeros 50 clientes. Menciona este folleto al contactarnos.</small></p>
+        <div class="discount">10% DE DESCUENTO</div>
+        <p>EN EL RESTO DE INSTALACIONES PERSONALIZADAS</p>
+        <div class="note">Válido para los primeros 50 clientes. Menciona este folleto al contactarnos.</div>
     </div>
 
-    <div class="contact">
+    <div class="contact-footer">
         <h3>¡No esperes más para proteger lo que más quieres!</h3>
-        <h2>LLAMA AHORA PARA TU PRESUPUESTO GRATUITO</h2>
+        <div class="call-to-action">Llama ahora para tu presupuesto gratuito</div>
         <div class="contact-info">
             <p>📞 +34 610 285 077</p>
             <p>🌐 <a href="https://smartsegur.es" class="website">www.smartsegur.es</a></p>
             <p>📧 info@smartsegur.es</p>
         </div>
+        <div class="support-note">Soporte bajo demanda disponible si lo necesitas</div>
     </div>
 
     <div class="footer">
-        <p>Smart Segur - Sistemas de Seguridad Inteligentes, Huelva - Soporte bajo demanda disponible si lo necesitas</p>
+        <p>Válido para los primeros 50 clientes.</p>
     </div>
+
 </body>
 </html>
