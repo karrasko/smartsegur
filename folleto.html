@@ -3,68 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Folleto Smart Segur - Seguridad Residencial en Huelva</title>
+    <title>Folleto Smart Segur - Seguridad Residencial</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             width: 210mm; /* Ancho A4 exacto */
             height: 297mm; /* Alto A4 exacto */
             margin: 0 auto;
-            padding: 10mm;
+            padding: 8mm; /* Reducido de 10mm */
             color: #333;
-            line-height: 1.4;
+            line-height: 1.3; /* Reducido de 1.4 */
             box-sizing: border-box;
         }
         .logo-container {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reducido de 20px */
         }
         .logo-svg {
-            width: 150px;
-            height: 180px;
+            width: 130px; /* Reducido de 150px */
+            height: 150px; /* Reducido de 180px */
         }
         .header {
             text-align: center;
             background-color: #1976D2;
             color: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 10px; /* Aumentado de 8px para mayor redondez */
+            margin-bottom: 12px;
         }
         .main-image {
             width: 100%;
-            height: auto; /* Altura automática para mantener proporción */
-            max-height: 60mm; /* Altura máxima controlada */
-            margin: 10px 0;
-            border-radius: 8px;
-            overflow: hidden;
+            height: auto;
+            max-height: none;
+            margin: 5px 0; /* Reducido de 10px */
+            border-radius: 10px;
+            overflow: visible;
+            border: none;
+            padding: 0;
+            box-sizing: border-box;
         }
         .main-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            border-radius: 8px; /* Borde redondeado para la imagen dentro del contenedor */
         }
         .benefits, .services, .promise {
-            margin: 30px 0;
+            margin: 12px 0; /* Reducido de 20px */
         }
         .benefits-grid {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            gap: 10px;
-            margin: 15px 0;
+            gap: 8px; /* Reducido de 10px */
+            margin: 5px 0; /* Reducido de 8px */
         }
         .benefit-item {
             background-color: #f8fafc;
-            padding: 10px;
-            border-radius: 8px;
+            padding: 8px;
+            border-radius: 10px; /* Aumentado de 8px para mayor redondez */
             border: 1px solid #e2e8f0;
             flex: 1;
-            font-size: 0.85em;
-            line-height: 1.3;
+            font-size: 0.8em;
+            line-height: 1.2;
         }
         .benefit-item p {
-            margin: 5px 0;
+            margin: 4px 0; /* Reducido de 5px */
         }
         .special-offer {
             background-color: #2196F3;
@@ -171,7 +176,7 @@
         h3 {
             text-align: center;
             color: #1976D2;
-            margin: 10px 0;
+            margin: 3px 0; /* Reducido de 5px */
         }
         ul {
             list-style-type: none;
@@ -190,7 +195,7 @@
             margin: 3px 0; /* Reducido aún más */
             font-size: 0.95em; /* Tipografía más pequeña */
             padding: 3px; /* Padding reducido */
-            font-weight: 600; /* Menos negrita */
+            font-weight: normal;
         }
         .services ul {
             list-style-type: none;
@@ -210,8 +215,8 @@
         .header-container {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
-            gap: 15px;
+            margin-bottom: 8px; /* Reducido de 15px */
+            gap: 12px; /* Reducido de 15px */
         }
         
         .logo-container {
@@ -264,39 +269,39 @@
         /* Nuevo estilo para servicios y pack básico en paralelo */
         .services-container {
             display: flex;
-            gap: 15px;
-            margin: 15px 0 25px 0; /* Más espacio abajo */
+            gap: 8px; /* Reducido de 12px */
+            margin: 5px 0 8px 0; /* Reducido de 8px 0 12px 0 */
         }
         
         .services-column {
             flex: 1;
             background-color: #f8fafc;
-            padding: 15px; /* Igualado al padding del pack básico */
-            border-radius: 8px;
+            padding: 10px;
+            border-radius: 10px; /* Aumentado de 8px para mayor redondez */
             border: 1px solid #e2e8f0;
-            text-align: center; /* Centrado como el pack básico */
+            text-align: center;
         }
         
         .services h3 {
-            margin: 5px 0 10px 0; /* Igualado al margen del título del pack */
-            font-size: 1.1em;
+            margin: 3px 0 8px 0; /* Reducido de 5px 0 10px 0 */
+            font-size: 1em; /* Reducido de 1.1em */
             color: #1976D2;
             text-align: center;
-            font-weight: normal; /* Para equilibrar visualmente */
+            font-weight: normal;
             padding: 0;
         }
         
         .services ul {
-            list-style-type: none; /* Sin viñetas */
+            list-style-type: none;
             text-align: center;
-            margin: 10px 0;
+            margin: 8px 0; /* Reducido de 10px */
             padding: 0;
         }
         
         .services ul li {
-            font-size: 0.85em;
-            margin-bottom: 5px;
-            line-height: 1.4;
+            font-size: 0.8em; /* Reducido de 0.85em */
+            margin-bottom: 4px; /* Reducido de 5px */
+            line-height: 1.3; /* Reducido de 1.4 */
         }
         
         .services strong {
@@ -308,37 +313,37 @@
         
         .basic-pack {
             flex: 1;
-            background-color: #e6f7ff; /* Azul claro/celeste */
-            color: #333; /* Texto oscuro */
-            padding: 15px;
-            border-radius: 8px;
+            background-color: #e6f7ff;
+            color: #333;
+            padding: 10px;
+            border-radius: 10px; /* Aumentado de 8px para mayor redondez */
             text-align: center;
-            border: 1px solid #a3d8f4; /* Borde azul claro */
+            border: 1px solid #a3d8f4;
         }
         
         .basic-pack h4 {
-            margin: 5px 0 10px 0;
-            font-size: 1.1em;
-            color: #1976D2; /* Azul para el título */
+            margin: 3px 0 8px 0; /* Reducido de 5px 0 10px 0 */
+            font-size: 1em; /* Reducido de 1.1em */
+            color: #1976D2;
             text-align: center;
         }
         
         .basic-pack ul {
             list-style-type: none;
             text-align: center;
-            margin: 10px 0;
+            margin: 8px 0; /* Reducido de 10px */
             padding: 0;
         }
         
         .basic-pack li {
-            font-size: 0.85em;
-            margin-bottom: 5px;
+            font-size: 0.8em; /* Reducido de 0.85em */
+            margin-bottom: 4px; /* Reducido de 5px */
             text-align: center;
         }
         
         .price-option {
-            font-size: 0.9em;
-            margin: 8px 0 0 0;
+            font-size: 0.85em; /* Reducido de 0.9em */
+            margin: 6px 0 0 0; /* Reducido de 8px */
             color: #333;
         }
         
@@ -360,26 +365,26 @@
         .contact-footer {
             background-color: #f7fafc;
             border: 1px solid #1976D2;
-            border-radius: 8px;
-            padding: 12px;
+            border-radius: 10px;
+            padding: 6px; /* Reducido de 8px */
             text-align: center;
-            margin-top: 20px;
+            margin-top: 8px; /* Reducido de 10px */
         }
         
         .contact-footer h3 {
-            font-size: 1em;
+            font-size: 0.95em; /* Reducido de 1em */
             color: #1976D2;
-            margin: 0 0 8px 0;
+            margin: 0 0 6px 0; /* Reducido de 0 0 8px 0 */
             padding: 0;
         }
         
         .call-to-action {
-            font-size: 1.05em; /* Aumentado de 0.95em */
-            font-weight: 600; /* Aumentado de normal a semi-bold */
-            margin: 5px 0 10px 0;
-            color: #1976D2; /* Cambiado a azul corporativo para mayor destaque */
-            padding: 3px 0; /* Añadido padding vertical para que respire */
-            letter-spacing: 0.3px; /* Ligero espaciado entre letras para mejor legibilidad */
+            font-size: 1em; /* Reducido de 1.05em */
+            font-weight: 600;
+            margin: 4px 0 8px 0; /* Reducido de 5px 0 10px 0 */
+            color: #1976D2;
+            padding: 2px 0; /* Reducido de 3px */
+            letter-spacing: 0.3px;
         }
         
         .contact-info {
@@ -414,30 +419,30 @@
         .special-offer-box {
             background-color: #2196F3;
             color: white;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 8px; /* Reducido de 10px */
+            border-radius: 10px;
             text-align: center;
-            margin: 20px 0;
+            margin: 8px 0; /* Reducido de 10px */
             display: block;
             width: 100%;
             box-sizing: border-box;
         }
         
         .special-offer-box h2 {
-            font-size: 1em;
-            margin: 5px 0;
+            font-size: 0.95em; /* Reducido de 1em */
+            margin: 3px 0; /* Reducido de 5px */
             font-weight: bold;
         }
         
         .special-offer-box .discount {
-            font-size: 1.5em;
+            font-size: 1.4em; /* Reducido de 1.5em */
             font-weight: bold;
-            margin: 8px 0;
+            margin: 6px 0; /* Reducido de 8px */
         }
         
         .special-offer-box p {
-            margin: 5px 0;
-            font-size: 0.9em;
+            margin: 3px 0; /* Reducido de 5px */
+            font-size: 0.85em; /* Reducido de 0.9em */
         }
         
         .special-offer-box .note {
@@ -540,7 +545,7 @@
     </div>
 
     <div class="special-offer-box">
-        <h2>¡OFERTA DE INICIO EXCLUSIVA PARA HUELVA!</h2>
+        <h2>¡OFERTA DE INICIO EXCLUSIVA!</h2>
         <div class="discount">10% DE DESCUENTO</div>
         <p>EN EL RESTO DE INSTALACIONES PERSONALIZADAS</p>
         <div class="note">Válido para los primeros 50 clientes. Menciona este folleto al contactarnos.</div>
