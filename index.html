@@ -1,270 +1,509 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Segur - Sistemas de Seguridad en Huelva</title>
+    <title>Smart Segur — IT gestionado para pymes en Huelva</title>
+    <meta name="description" content="Tu departamento de IT externalizado. Monitorización, seguridad, backup y soporte para empresas de 5-20 empleados sin IT interno.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 240'><path d='M100 20 L160 50 V110 C160 150 100 180 100 180 C100 180 40 150 40 110 V50 Z' fill='%232196F3' stroke='%231976D2' stroke-width='4'/><rect x='80' y='80' width='40' height='40' fill='%231976D2' stroke='%23FFFFFF' stroke-width='2'/></svg>">
     <style>
         :root {
             --primary: #2196F3;
-            --primary-dark: #1976D2;
+            --primary-dark: #1565C0;
+            --primary-light: #E3F2FD;
+            --dark: #1A1A2E;
+            --gray: #64748B;
+            --gray-light: #F8FAFC;
             --white: #FFFFFF;
-            --gray-50: #F8FAFC;
-            --gray-100: #F1F5F9;
-            --gray-200: #E2E8F0;
+            --danger: #EF4444;
+            --success: #22C55E;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Base styles optimized for mobile */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            font-size: 16px;
         }
 
+        /* NAVBAR */
         .navbar {
-            background-color: var(--white);
-            padding: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: var(--white);
+            padding: 0.75rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 100;
-        }
-
-        .navbar-content {
-            padding: 0 1rem;
             display: flex;
-            flex-direction: column;
             align-items: center;
+            justify-content: space-between;
         }
 
-        .logo {
-            height: 50px;
-            margin-bottom: 0.5rem;
-        }
-
-        .nav-links {
+        .navbar-brand {
             display: flex;
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        .nav-links a {
-            color: var(--primary-dark);
+            align-items: center;
+            gap: 0.75rem;
             text-decoration: none;
-            font-weight: 500;
         }
 
+        .navbar-brand svg { height: 44px; }
+
+        .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+        .brand-name { font-weight: 700; font-size: 1.1rem; color: var(--primary-dark); }
+        .brand-tagline { font-size: 0.7rem; color: var(--gray); }
+
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-cta {
+            background: var(--primary);
+            color: var(--white) !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 600 !important;
+        }
+        .nav-cta:hover { background: var(--primary-dark); color: var(--white) !important; }
+
+        /* HERO */
         .hero {
-            background: linear-gradient(rgba(33, 150, 243, 0.9), rgba(25, 118, 210, 0.9)),
-                        url('/api/placeholder/800/600');
-            background-size: cover;
-            background-position: center;
-            padding-top: 120px;
+            background: linear-gradient(135deg, var(--dark) 0%, #0D47A1 100%);
+            padding: 120px 1.5rem 80px;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            position: relative;  /* Añadido para posicionamiento del sello */
         }
 
-        .hero-seal {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            opacity: 0.2;  /* Aumentar la opacidad para hacerla más visible */
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .hero-content {
-            padding: 1rem;
-            text-align: center;
-            color: var(--white);
-            position: relative;
-            z-index: 2;
+        .hero-inner {
+            max-width: 1100px;
             margin: 0 auto;
-            max-width: 800px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text { color: var(--white); }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(33,150,243,0.2);
+            border: 1px solid rgba(33,150,243,0.4);
+            color: #90CAF9;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
         }
 
         .hero h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            text-align: center;
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
         }
 
-        .hero p {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
+        .hero h1 span { color: #64B5F6; }
 
-        .cta-button {
-            display: block;
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-            text-align: center;
-            background-color: var(--white);
-            color: var(--primary-dark);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.2s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-        }
-
-        .features {
-            padding: 2rem 1rem;
-            background-color: var(--gray-50);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-
-        .feature-card {
-            background-color: var(--white);
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .feature-card h3 {
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
-        }
-
-        .contact-section {
-            padding: 2rem 1rem;
-            text-align: center;
-            background-color: var(--primary);
-            color: var(--white);
-        }
-
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-content h2 {
-            margin-bottom: 1rem;
-        }
-
-        .contact-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-email {
+        .hero-subtitle {
             font-size: 1.1rem;
-            margin-top: 1rem;
+            color: #B0BEC5;
+            margin-bottom: 2rem;
+            line-height: 1.7;
         }
 
-        .footer {
-            background-color: var(--primary-dark);
+        .hero-proof {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .proof-item { text-align: center; }
+        .proof-number { font-size: 1.8rem; font-weight: 800; color: #64B5F6; }
+        .proof-label { font-size: 0.75rem; color: #90A4AE; }
+
+        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .btn-primary {
+            background: var(--primary);
             color: var(--white);
+            padding: 0.85rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: background 0.2s, transform 0.2s;
+            display: inline-block;
+        }
+        .btn-primary:hover { background: #1976D2; transform: translateY(-2px); }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 0.85rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: border-color 0.2s, transform 0.2s;
+            display: inline-block;
+        }
+        .btn-secondary:hover { border-color: white; transform: translateY(-2px); }
+
+        /* LEAD FORM en el hero */
+        .hero-form {
+            background: var(--white);
+            border-radius: 16px;
             padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .hero-form h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .hero-form p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group { margin-bottom: 1rem; }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 0.3rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 7px;
+            font-size: 0.95rem;
+            color: var(--dark);
+            transition: border-color 0.2s;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        .btn-form {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 0.5rem;
+        }
+        .btn-form:hover { background: #1976D2; }
+
+        .form-privacy {
+            font-size: 0.72rem;
+            color: #94A3B8;
             text-align: center;
+            margin-top: 0.75rem;
         }
 
-        /* Media queries for larger screens */
-        @media (min-width: 768px) {
-            .navbar-content {
-                flex-direction: row;
-                justify-content: space-between;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 2rem;
-            }
-
-            .logo {
-                margin-bottom: 0;
-            }
-
-            .nav-links {
-                margin-top: 0;
-                gap: 2rem;
-            }
-
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-
-            .hero p {
-                font-size: 1.25rem;
-            }
-
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-
-            .cta-button {
-                display: inline-block;
-                width: auto;
-            }
-
-            .hero-seal {
-                width: 500px;
-                height: 500px;
-                opacity: 0.25;
-            }
-
-            .contact-buttons {
-                flex-direction: row;
-                justify-content: center;
-                gap: 2rem;
-            }
+        /* PAIN POINTS */
+        .pain-section {
+            background: #FFF8F0;
+            border-top: 4px solid #FF9800;
+            padding: 4rem 1.5rem;
         }
 
-        @media (min-width: 1024px) {
-            .features-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
+        .pain-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
-            .hero-content, .features-grid, .contact-content {
-                max-width: 1200px;
-                margin: 0 auto;
-            }
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #FF9800;
+            margin-bottom: 0.5rem;
+        }
+
+        .pain-inner h2 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 2.5rem;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .pain-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--danger);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .pain-card .icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .pain-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--dark); margin-bottom: 0.4rem; }
+        .pain-card p { font-size: 0.85rem; color: var(--gray); }
+
+        /* SERVICIOS */
+        .services-section {
+            padding: 5rem 1.5rem;
+            background: var(--gray-light);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header p { color: var(--gray); font-size: 1rem; }
+
+        .plans-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .plan-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.04);
+            box-shadow: 0 8px 32px rgba(33,150,243,0.2);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.25rem 0.9rem;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .plan-name { font-size: 0.8rem; font-weight: 700; color: var(--primary); letter-spacing: 1px; text-transform: uppercase; }
+        .plan-price { font-size: 2.2rem; font-weight: 800; color: var(--dark); margin: 0.5rem 0 0.2rem; }
+        .plan-price span { font-size: 0.9rem; font-weight: 400; color: var(--gray); }
+        .plan-desc { font-size: 0.85rem; color: var(--gray); margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #E2E8F0; }
+
+        .plan-features { list-style: none; margin-bottom: 1.75rem; }
+        .plan-features li {
+            font-size: 0.88rem;
+            padding: 0.4rem 0;
+            color: #475569;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+        .plan-features li::before { content: "✓"; color: var(--success); font-weight: 700; flex-shrink: 0; }
+
+        .btn-plan {
+            display: block;
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .btn-plan-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        .btn-plan-outline:hover { background: var(--primary-light); }
+
+        .btn-plan-solid {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-plan-solid:hover { background: #1976D2; }
+
+        /* DIFERENCIACION */
+        .diff-section {
+            padding: 5rem 1.5rem;
+            background: white;
+        }
+
+        .diff-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .diff-text h2 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .diff-text p { color: var(--gray); margin-bottom: 1.5rem; line-height: 1.7; }
+
+        .diff-quote {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .diff-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+        .diff-table th {
+            background: var(--gray-light);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 700;
+            color: var(--dark);
+            border-bottom: 2px solid #E2E8F0;
+        }
+        .diff-table td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid #F1F5F9;
+            color: #475569;
+        }
+        .diff-table td:first-child { font-weight: 600; color: var(--dark); }
+        .diff-table tr:last-child td { border-bottom: none; }
+        .tag-bad { color: var(--danger); font-size: 0.8rem; }
+        .tag-good { color: var(--success); font-size: 0.8rem; }
+
+        /* CTA FINAL */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            padding: 5rem 1.5rem;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.05rem; color: #B3D9FF; margin-bottom: 2.5rem; max-width: 580px; margin-left: auto; margin-right: auto; }
+
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-dark);
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+        .btn-ghost-white {
+            background: transparent;
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid rgba(255,255,255,0.5);
+            transition: border-color 0.2s, transform 0.2s;
+            display: inline-block;
+        }
+        .btn-ghost-white:hover { border-color: white; transform: translateY(-2px); }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: #90A4AE;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        footer a { color: #64B5F6; text-decoration: none; }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+            .hero h1 { font-size: 2rem; }
+            .pain-grid { grid-template-columns: 1fr 1fr; }
+            .plans-grid { grid-template-columns: 1fr; max-width: 420px; }
+            .plan-card.featured { transform: scale(1); }
+            .diff-inner { grid-template-columns: 1fr; gap: 2rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .pain-grid { grid-template-columns: 1fr; }
+            .hero { padding: 100px 1rem 60px; }
+            .hero h1 { font-size: 1.75rem; }
+            .hero-proof { gap: 1rem; }
         }
     </style>
 </head>
 <body>
+
+    <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="navbar-content">
-            <svg class="logo" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-                <!-- Logo SVG code -->
-                <path d="M100 20 L160 50 V110 C160 150 100 180 100 180 C100 180 40 150 40 110 V50 Z" 
-                      fill="#2196F3" 
-                      stroke="#1976D2" 
-                      stroke-width="4"/>
-                <rect x="80" y="80" width="40" height="40" 
-                      fill="#1976D2" stroke="#FFFFFF" stroke-width="2"/>
+        <a class="navbar-brand" href="#inicio">
+            <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                <path d="M100 20 L160 50 V110 C160 150 100 180 100 180 C100 180 40 150 40 110 V50 Z" fill="#2196F3" stroke="#1976D2" stroke-width="4"/>
+                <rect x="80" y="80" width="40" height="40" fill="#1976D2" stroke="#FFFFFF" stroke-width="2"/>
                 <line x1="100" y1="50" x2="100" y2="80" stroke="#FFFFFF" stroke-width="2"/>
                 <line x1="100" y1="120" x2="100" y2="150" stroke="#FFFFFF" stroke-width="2"/>
                 <line x1="60" y1="100" x2="80" y2="100" stroke="#FFFFFF" stroke-width="2"/>
@@ -281,115 +520,267 @@
                 <line x1="70" y1="130" x2="80" y2="120" stroke="#FFFFFF" stroke-width="2"/>
                 <circle cx="130" cy="130" r="3" fill="#FFFFFF"/>
                 <line x1="130" y1="130" x2="120" y2="120" stroke="#FFFFFF" stroke-width="2"/>
-                <text x="100" y="220" 
-                      font-family="Arial, sans-serif" 
-                      font-weight="700"
-                      font-size="24" 
-                      text-anchor="middle" 
-                      fill="#1976D2">
-                  SMART
-                </text>
-                <text x="100" y="235" 
-                      font-family="Arial, sans-serif" 
-                      font-size="16" 
-                      text-anchor="middle" 
-                      fill="#2196F3"
-                      letter-spacing="2">
-                  SEGUR
-                </text>
+                <text x="100" y="220" font-family="Arial" font-weight="700" font-size="24" text-anchor="middle" fill="#1976D2">SMART</text>
+                <text x="100" y="235" font-family="Arial" font-size="16" text-anchor="middle" fill="#2196F3" letter-spacing="2">SEGUR</text>
             </svg>
-            <div class="nav-links">
-                <a href="#inicio">Inicio</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#contacto">Contacto</a>
-                <a href="folleto.html">Folleto</a>
+            <div class="brand-text">
+                <span class="brand-name">Smart Segur</span>
+                <span class="brand-tagline">IT gestionado para pymes</span>
             </div>
+        </a>
+        <div class="nav-links">
+            <a href="#problema">¿Te suena?</a>
+            <a href="#servicios">Planes</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#contacto" class="nav-cta">Diagnóstico gratuito</a>
         </div>
     </nav>
 
+    <!-- HERO -->
     <section class="hero" id="inicio">
-        <svg class="hero-seal" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 20 L160 50 V110 C160 150 100 180 100 180 C100 180 40 150 40 110 V50 Z" 
-                  fill="#FFFFFF" 
-                  stroke="#FFFFFF" 
-                  stroke-width="4"/>
-            <rect x="80" y="80" width="40" height="40" 
-                  fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2"/>
-            <line x1="100" y1="50" x2="100" y2="80" stroke="#FFFFFF" stroke-width="2"/>
-            <line x1="100" y1="120" x2="100" y2="150" stroke="#FFFFFF" stroke-width="2"/>
-            <line x1="60" y1="100" x2="80" y2="100" stroke="#FFFFFF" stroke-width="2"/>
-            <line x1="120" y1="100" x2="140" y2="100" stroke="#FFFFFF" stroke-width="2"/>
-            <circle cx="100" cy="50" r="3" fill="#FFFFFF"/>
-            <circle cx="100" cy="150" r="3" fill="#FFFFFF"/>
-            <circle cx="60" cy="100" r="3" fill="#FFFFFF"/>
-            <circle cx="140" cy="100" r="3" fill="#FFFFFF"/>
-            <circle cx="70" cy="70" r="3" fill="#FFFFFF"/>
-            <line x1="70" y1="70" x2="80" y2="80" stroke="#FFFFFF" stroke-width="2"/>
-            <circle cx="130" cy="70" r="3" fill="#FFFFFF"/>
-            <line x1="130" y1="70" x2="120" y2="80" stroke="#FFFFFF" stroke-width="2"/>
-            <circle cx="70" cy="130" r="3" fill="#FFFFFF"/>
-            <line x1="70" y1="130" x2="80" y2="120" stroke="#FFFFFF" stroke-width="2"/>
-            <circle cx="130" cy="130" r="3" fill="#FFFFFF"/>
-            <line x1="130" y1="130" x2="120" y2="120" stroke="#FFFFFF" stroke-width="2"/>
-            <text x="100" y="220" 
-                  font-family="Arial, sans-serif" 
-                  font-weight="700"
-                  font-size="24" 
-                  text-anchor="middle" 
-                  fill="#FFFFFF">
-              SMART
-            </text>
-            <text x="100" y="235" 
-                  font-family="Arial, sans-serif" 
-                  font-size="16" 
-                  text-anchor="middle" 
-                  fill="#FFFFFF"
-                  letter-spacing="2">
-              SEGUR
-            </text>
-        </svg>
-        <div class="hero-content">
-            <h1>Protege lo que más importa</h1>
-            <p>Sistemas de seguridad inteligentes para tu hogar en Huelva. Tecnología avanzada y servicio profesional para tu tranquilidad.</p>
-            <a href="#contacto" class="cta-button">Solicitar Presupuesto Gratuito</a>
+        <div class="hero-inner">
+            <div class="hero-text">
+                <div class="hero-badge">MSP · Huelva y provincia</div>
+                <h1>Tu empresa merece un <span>departamento IT real</span>, no un informático que tarda días</h1>
+                <p class="hero-subtitle">
+                    Monitorizamos, protegemos y gestionamos toda tu infraestructura digital de forma continua.
+                    Cuando algo falla, ya lo sabemos antes de que tú lo notes.
+                </p>
+                <div class="hero-proof">
+                    <div class="proof-item">
+                        <div class="proof-number">24/7</div>
+                        <div class="proof-label">Monitorización</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-number">&lt;2h</div>
+                        <div class="proof-label">Respuesta media</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-number">80€</div>
+                        <div class="proof-label">Desde /mes</div>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#contacto" class="btn-primary">Solicitar diagnóstico gratuito</a>
+                    <a href="#servicios" class="btn-secondary">Ver planes</a>
+                </div>
+            </div>
+
+            <!-- FORMULARIO CAPTURA DE LEADS -->
+            <div class="hero-form" id="contacto">
+                <h3>Diagnóstico gratuito de tu IT</h3>
+                <p>Sin compromiso. Te decimos exactamente qué riesgos tiene tu empresa ahora mismo.</p>
+                <form action="https://formspree.io/f/XXXXXXXX" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Tu nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej: Antonio García" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">Empresa</label>
+                            <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="tu@empresa.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="600 000 000">
+                    </div>
+                    <div class="form-group">
+                        <label for="empleados">¿Cuántos empleados tenéis?</label>
+                        <select id="empleados" name="empleados" required>
+                            <option value="" disabled selected>Selecciona...</option>
+                            <option value="1-4">1 a 4</option>
+                            <option value="5-10">5 a 10</option>
+                            <option value="11-20">11 a 20</option>
+                            <option value="20+">Más de 20</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="problema">¿Cuál es vuestro mayor problema técnico?</label>
+                        <select id="problema" name="problema">
+                            <option value="" disabled selected>Selecciona el más urgente...</option>
+                            <option value="wifi">WiFi o internet que falla</option>
+                            <option value="backup">No tenemos backup fiable</option>
+                            <option value="seguridad">Miedo a virus o ciberataques</option>
+                            <option value="soporte">No tenemos a nadie que resuelva problemas</option>
+                            <option value="remoto">Acceso remoto para teletrabajar</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-form">Quiero mi diagnóstico gratuito →</button>
+                    <p class="form-privacy">Sin spam. Tus datos solo se usan para contactarte. Puedes darte de baja cuando quieras.</p>
+                </form>
+            </div>
         </div>
     </section>
 
-    <section class="features" id="servicios">
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>Alarmas Inteligentes</h3>
-                <p>Sistemas de última generación con conexión a central receptora 24/7 y control desde tu móvil.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Videovigilancia CCTV</h3>
-                <p>Cámaras de alta definición con visión nocturna y acceso remoto desde cualquier dispositivo.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Instalación Profesional</h3>
-                <p>Equipo técnico cualificado que garantiza una instalación rápida y eficiente.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Mantenimiento Garantizado</h3>
-                <p>Servicio técnico local con respuesta rápida y mantenimiento preventivo.</p>
+    <!-- PAIN POINTS -->
+    <section class="pain-section" id="problema">
+        <div class="pain-inner">
+            <div class="section-label">¿Te suena esto?</div>
+            <h2>Los problemas IT que frenan a las pymes cada día</h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="icon">📶</div>
+                    <h4>El WiFi falla en el peor momento</h4>
+                    <p>El router de la operadora no da más. Sin segmentación, sin control, sin redundancia.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">💾</div>
+                    <h4>¿Cuándo se hizo el último backup?</h4>
+                    <p>Nadie lo sabe con certeza. Y si algo falla, podéis perder semanas de trabajo.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">🔒</div>
+                    <h4>Un ransomware os para días enteros</h4>
+                    <p>Las pymes son el objetivo preferido. Un ataque cuesta de media 50.000€ entre rescate y pérdida de negocio.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">⏳</div>
+                    <h4>El "informático amigo" tarda 3 días</h4>
+                    <p>Cuando algo se rompe, dependéis de alguien que tiene otros clientes y otras prioridades.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">📋</div>
+                    <h4>Multa RGPD por no tener medidas técnicas</h4>
+                    <p>Si manejáis datos de clientes sin protección adecuada, la responsabilidad es vuestra. Desde 10.000€.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">🏠</div>
+                    <h4>Teletrabajo sin VPN ni acceso seguro</h4>
+                    <p>Empleados conectándose desde casa por RDP expuesto o con contraseñas compartidas por WhatsApp.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="contact-section" id="contacto">
-        <div class="contact-content">
-            <h2>¿Listo para proteger tu hogar?</h2>
-            <p>Solicita ahora tu estudio de seguridad gratuito y obtén un 10% de descuento en tu instalación</p>
-            <div class="contact-buttons">
-                <a href="tel:+34610285077" class="cta-button">Llamar Ahora</a>
-                <a href="mailto:info@smartsegur.es" class="cta-button">Enviar Email</a>
+    <!-- PLANES -->
+    <section class="services-section" id="servicios">
+        <div class="section-header">
+            <div class="section-label" style="color: var(--primary);">Planes MSP</div>
+            <h2>Elige el nivel de servicio que necesita tu empresa</h2>
+            <p>Sin permanencia. Sin letra pequeña. Cancela cuando quieras.</p>
+        </div>
+        <div class="plans-grid">
+            <div class="plan-card">
+                <div class="plan-name">Plan Base</div>
+                <div class="plan-price">80–120€ <span>/mes</span></div>
+                <p class="plan-desc">Para empresas que quieren saber qué pasa en su red antes de que lleguen los problemas.</p>
+                <ul class="plan-features">
+                    <li>Monitorización de red y dispositivos críticos 24/7</li>
+                    <li>Alertas proactivas antes de que falle algo</li>
+                    <li>Actualizaciones y parcheado programado</li>
+                    <li>Soporte remoto básico (2h/mes incluidas)</li>
+                    <li>Informe mensual de estado</li>
+                </ul>
+                <a href="#contacto" class="btn-plan btn-plan-outline">Solicitar info</a>
             </div>
-            <p class="contact-email">Email: info@smartsegur.es</p>
+
+            <div class="plan-card featured">
+                <div class="plan-badge">Más popular</div>
+                <div class="plan-name">Plan Infraestructura</div>
+                <div class="plan-price">150–200€ <span>/mes</span></div>
+                <p class="plan-desc">El IT completo que una empresa de 5-20 personas necesita para trabajar sin preocupaciones.</p>
+                <ul class="plan-features">
+                    <li>Todo lo del Plan Base</li>
+                    <li>WiFi profesional segmentado (empleados / invitados / IoT)</li>
+                    <li>VPN para acceso remoto seguro</li>
+                    <li>Backup cloud verificado y automatizado</li>
+                    <li>Firewall + DNS filtering + EDR ligero</li>
+                    <li>Soporte remoto ampliado (5h/mes incluidas)</li>
+                </ul>
+                <a href="#contacto" class="btn-plan btn-plan-solid">Solicitar info</a>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-name">Plan Total</div>
+                <div class="plan-price">250–400€ <span>/mes</span></div>
+                <p class="plan-desc">Para empresas que quieren tener su IT completamente fuera de su cabeza.</p>
+                <ul class="plan-features">
+                    <li>Todo lo del Plan Infraestructura</li>
+                    <li>Gestión de identidades (SSO + MFA)</li>
+                    <li>Monitorización de seguridad activa</li>
+                    <li>Respuesta a incidentes incluida</li>
+                    <li>Onboarding de nuevos empleados</li>
+                    <li>Revisión trimestral de arquitectura</li>
+                </ul>
+                <a href="#contacto" class="btn-plan btn-plan-outline">Solicitar info</a>
+            </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <p>© 2024 Smart Segur - Sistemas de Seguridad en Huelva</p>
+    <!-- DIFERENCIACIÓN -->
+    <section class="diff-section">
+        <div class="diff-inner">
+            <div class="diff-text">
+                <div class="section-label" style="color: var(--primary);">Por qué Smart Segur</div>
+                <h2>No somos informáticos. Somos vuestro departamento IT.</h2>
+                <p>
+                    La mayoría de empresas de vuestro tamaño no tienen IT interno. Cuando algo falla,
+                    llamáis a alguien que tarda días. Nosotros monitorizamos vuestra infraestructura
+                    de forma continua y resolvemos problemas antes de que los notéis.
+                </p>
+                <div class="diff-quote">
+                    "Backup verificado, red segmentada, VPN para trabajar desde casa, y alguien que
+                    coge el teléfono cuando hay un problema. Por menos de lo que os cuesta un día parado."
+                </div>
+            </div>
+            <div>
+                <table class="diff-table">
+                    <thead>
+                        <tr>
+                            <th>Alternativa</th>
+                            <th>Su límite</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Informático tradicional</td>
+                            <td><span class="tag-bad">Reactivo, sin monitorización</span></td>
+                        </tr>
+                        <tr>
+                            <td>MSP grande</td>
+                            <td><span class="tag-bad">Mínimo 500€/mes, trato impersonal</span></td>
+                        </tr>
+                        <tr>
+                            <td>IT interno junior</td>
+                            <td><span class="tag-bad">25.000€/año en nómina</span></td>
+                        </tr>
+                        <tr>
+                            <td>Operadora "gestionada"</td>
+                            <td><span class="tag-bad">Solo router + soporte básico</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Smart Segur</strong></td>
+                            <td><span class="tag-good">Proactivo, stack completo, precio pyme</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section">
+        <h2>¿Cuánto os cuesta un día parado?</h2>
+        <p>
+            Un fallo de red en una empresa de 10 personas son 500–5.000€ perdidos.
+            Frente a eso, 150€/mes es un seguro de continuidad de negocio.
+        </p>
+        <div class="cta-buttons">
+            <a href="#contacto" class="btn-white">Solicitar diagnóstico gratuito</a>
+            <a href="tel:+34610285077" class="btn-ghost-white">📞 Llamar ahora</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Smart Segur · IT gestionado para pymes · Huelva · <a href="mailto:info@smartsegur.es">info@smartsegur.es</a> · <a href="tel:+34610285077">610 285 077</a></p>
     </footer>
+
 </body>
 </html>
